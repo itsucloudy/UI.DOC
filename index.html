@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI.DOC</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="stationary-viewport">
+    <header class="site-header">
+      <a href="index.html" class="brand">UI.DOC</a>
+      <div class="nav-container-row">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="pages/mechanics.html">Mechanics</a></li>
+            <li><a href="pages/structure.html">Structure</a></li>
+            <li><a href="pages/legals.html">Legals</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-content">
+        <span class="card-tag">HTML & CSS Documentation</span>
+        <h1 class="hero-headline">
+          A stationary viewport layout built with semantic HTML and modern CSS.
+        </h1>
+        <p class="hero-subtext">
+          An interactive breakdown of how this site locks its home screen to
+          the viewport and transitions into scrollable subpages.
+        </p>
+        <div class="hero-actions">
+          <a href="pages/mechanics.html" class="btn-mechanics">Inspect Mechanics</a>
+          <a href="pages/structure.html" class="btn-structure">Read Structure</a>
+        </div>
+      </div>
+
+      <a href="pages/mechanics.html" class="hero-card">
+        <span class="card-tag">Interactive Trigger</span>
+        <h2>Click Anywhere on This Card</h2>
+        <p>
+          This entire container is wrapped in an anchor tag. Clicking it exits
+          the locked 100dvh home view and loads a scrollable breakdown page.
+        </p>
+        <span class="card-link">Explore How It Works →</span>
+      </a>
+    </main>
+
+    <footer class="site-footer">
+      <span>Stationary Home View · Locked to 100dvh</span>
+      <span>HTML5 & CSS3</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legals — UI.DOC</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body class="subpage">
+    <header class="site-header">
+      <a href="../index.html" class="brand">UI.DOC</a>
+      <div class="nav-container-row">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="mechanics.html">Mechanics</a></li>
+            <li><a href="structure.html">Structure</a></li>
+            <li><a href="legals.html">Legals</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <a href="../index.html" class="back-link">← Back to Home</a>
+      <span class="card-tag">Authorship &amp; Legals</span>
+      <h1 class="page-title">How I built this project (and where AI helped).</h1>
+      <p class="page-lead">
+        Since this site documents how its own code works, it only makes sense
+        to be upfront about how it was made. Here is an honest breakdown of what
+        I wrote myself and what I handed off to AI.
+      </p>
+
+      <section class="split-card">
+        <div class="split-labels">
+          <span class="split-human">My Work · 70%</span>
+          <span class="split-ai">AI Help · 30%</span>
+        </div>
+        <div
+          class="split-bar"
+          role="img"
+          aria-label="70 percent my work and 30 percent AI assistance"
+        >
+          <div class="split-fill-human" style="width: 70%"></div>
+          <div class="split-fill-ai" style="width: 30%"></div>
+        </div>
+      </section>
+
+      <section class="text-section">
+        <h2>What I Did (70%)</h2>
+        <p>
+          After seeing an initial AI prototype, I rebuilt the site from scratch
+          by eyeballing the visual design rather than copying the original
+          code—only checking back when I got genuinely stuck. I mapped out the
+          multi-page structure and wrote the core CSS myself, including the
+          locked <code>100dvh</code> home screen, Flexbox alignment, card and
+          button rules, and the <code>pages/</code> folder setup.
+        </p>
+        <p>
+          I also tested everything in the browser, caught broken links and
+          awkward line spacing, decided to replace my original test form with
+          this legals page, and chose to organize the color palette with
+          <code>:root</code> variables.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>What AI Did (30%)</h2>
+        <p>
+          AI generated the initial visual prototype I used as a reference, and
+          then acted as a helper for the repetitive HTML markup, file naming,
+          and page copy. It helped catch relative path bugs between the root
+          folder and <code>pages/</code>, structured the subpage sections, and
+          wrote the text descriptions and percentage bar markup.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>Project Scope</h2>
+        <p>
+          This is a plain HTML5 and CSS3 school project. There are no external
+          frameworks, backend servers, databases, or tracking scripts—just static
+          files built to demonstrate layout and styling fundamentals.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Authorship &amp; Legals · Shared styles.css</span>
+      <span>HTML5 &amp; CSS3</span>
+    </footer>
+  </body>
+</html>

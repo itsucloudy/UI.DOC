@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Structure — UI.DOC</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body class="subpage">
+    <header class="site-header">
+      <a href="../index.html" class="brand">UI.DOC</a>
+      <div class="nav-container-row">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="mechanics.html">Mechanics</a></li>
+            <li><a href="structure.html">Structure</a></li>
+            <li><a href="legals.html">Legals</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <a href="../index.html" class="back-link">← Back to Stationary View</a>
+      <span class="card-tag">Architecture &amp; System</span>
+      <h1 class="page-title">How the files and layout are organized.</h1>
+      <p class="page-lead">
+        This project keeps a flat, predictable file tree and shares a single
+        stylesheet across both the locked home viewport and scrollable subpages.
+      </p>
+
+      <section class="structure-grid" aria-label="Architecture overview">
+        <article class="structure-card">
+          <span class="card-tag">01 · Root Directory</span>
+          <h3>index.html &amp; styles.css</h3>
+          <p>
+            The entry point and global stylesheet sit at the root so every
+            subpage can reference <code>../styles.css</code> without duplicating
+            rules.
+          </p>
+        </article>
+
+        <article class="structure-card">
+          <span class="card-tag">02 · Subpages Folder</span>
+          <h3>pages/ Directory</h3>
+          <p>
+            Houses <code>mechanics.html</code>, <code>structure.html</code>, and
+            <code>legals.html</code>, keeping secondary views cleanly separated
+            from the home screen.
+          </p>
+        </article>
+
+        <article class="structure-card">
+          <span class="card-tag">03 · Semantic Landmarks</span>
+          <h3>Header, Main &amp; Footer</h3>
+          <p>
+            Every route uses <code>&lt;header&gt;</code>,
+            <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and
+            <code>&lt;footer&gt;</code> rather than generic wrapper
+            <code>&lt;div&gt;</code> tags.
+          </p>
+        </article>
+
+        <article class="structure-card">
+          <span class="card-tag">04 · Container Widths</span>
+          <h3>1200px vs. 740px</h3>
+          <p>
+            <code>.hero</code> spans <code>1200px</code> for two columns, while
+            <code>.page-content</code> narrows to <code>740px</code> for
+            comfortable line lengths.
+          </p>
+        </article>
+      </section>
+
+      <section class="text-section">
+        <h2>Viewport Modes via Body Classes</h2>
+        <p>
+          Instead of maintaining two separate stylesheets, switching the
+          <code>&lt;body&gt;</code> class changes how the page behaves.
+          <code>.stationary-viewport</code> locks the home screen to
+          <code>100dvh</code> with hidden vertical overflow, whereas
+          <code>.subpage</code> switches to <code>min-height: 100vh</code> so
+          articles and grids scroll naturally.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>Design Tokens &amp; Typography</h2>
+        <p>
+          All colors live in <code>:root</code> custom properties—warm
+          parchment surfaces (<code>--bg</code> and <code>--surface</code>),
+          muted stone borders (<code>--border</code>), and terracotta accents
+          (<code>--accent</code>). Headings use <code>Georgia</code> serif for
+          editorial contrast against <code>system-ui</code> sans-serif body
+          copy.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Project Structure · Shared styles.css</span>
+      <span>HTML5 &amp; CSS3</span>
+    </footer>
+  </body>
+</html>

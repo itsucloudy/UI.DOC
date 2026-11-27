@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mechanics — UI.DOC</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body class="subpage">
+    <header class="site-header">
+      <a href="../index.html" class="brand">UI.DOC</a>
+      <div class="nav-container-row">
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="mechanics.html">Mechanics</a></li>
+            <li><a href="structure.html">Structure</a></li>
+            <li><a href="legals.html">Legals</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <a href="../index.html" class="back-link">← Back to Stationary View</a>
+      <span class="card-tag">Core Functionality</span>
+      <h1 class="page-title">How the layout and navigation work.</h1>
+      <p class="page-lead">
+        Unlike the stationary home screen, this page removes the strict viewport height lock so longer technical explanations can scroll naturally without clipping content.
+      </p>
+
+      <section class="text-section">
+        <h2>1. Stationary Viewport Lock (Home)</h2>
+        <p>
+          The home page uses <code>.stationary-viewport</code> with <code>display: flex; flex-direction: column;</code>, <code>height: 100dvh;</code>, and <code>overflow-y: hidden;</code>. Using <code>100dvh</code> (dynamic viewport height) helps fit the screen cleanly even when mobile browser address bars appear or hide.
+        </p>
+        <p>
+          Inside that vertical flex column, the header stays at the top, the footer stays at the bottom, and <code>.hero</code> expands with <code>flex: 1</code> so its content centers vertically in the remaining space.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>2. Two-Column Hero & Full-Card Anchor Links</h2>
+        <p>
+          On the home screen, <code>.hero</code> uses Flexbox with <code>justify-content: space-between</code> and <code>align-items: center</code> to place <code>.hero-content</code> on the left and <code>.hero-card</code> on the right inside a <code>max-width: 1200px</code> container.
+        </p>
+        <p>
+          Instead of making only a small text link clickable, <code>&lt;a class="hero-card"&gt;</code> is set to <code>display: block</code> so the entire card surface acts as a single link with hover border feedback.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>3. Relative Folder Paths & Multi-Page Linking</h2>
+        <p>
+          Because <code>index.html</code> sits in the root folder while <code>mechanics.html</code>, <code>structure.html</code>, and <code>legals.html</code> live inside <code>pages/</code>, links from the home page point to <code>pages/...</code> while links inside subpages use <code>../</code> to step back up to the root folder.
+        </p>
+        <p>
+          Likewise, each subpage loads the shared stylesheet with <code>../styles.css</code> so visual styling—warm parchment surfaces, terracotta accents, serif headings, and sans-serif body text—stays consistent across every route.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Scrollable Subpage · Shared styles.css</span>
+      <span>HTML5 & CSS3</span>
+    </footer>
+  </body>
+</html>
+
