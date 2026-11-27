@@ -14,7 +14,9 @@
         <nav aria-label="Primary navigation">
           <ul>
             <li><a href="mechanics.html">Mechanics</a></li>
-            <li><a href="structure.html">Structure</a></li>
+            <li>
+              <a href="structure.html" aria-current="page">Structure</a>
+            </li>
             <li><a href="legals.html">Legals</a></li>
           </ul>
         </nav>
@@ -24,47 +26,45 @@
     <main class="page-content">
       <a href="../index.html" class="back-link">← Back to Stationary View</a>
       <span class="card-tag">Architecture &amp; System</span>
-      <h1 class="page-title">How the files and layout are organized.</h1>
+      <h1 class="page-title">How every file and layout layer is organized.</h1>
       <p class="page-lead">
-        The project is split into a root entry page, a shared stylesheet, and
-        three subpages inside <code>pages/</code>. Instead of duplicating styles
-        or writing separate CSS files per view, each page reuses the same
-        classes and changes behavior through the body class.
+        The project consists of five core files: <code>index.html</code> and
+        <code>styles.css</code> at the root, plus <code>mechanics.html</code>,
+        <code>structure.html</code>, and <code>legals.html</code> inside
+        <code>pages/</code>. Every page shares the same structural skeleton and
+        design tokens.
       </p>
 
       <section class="structure-grid" aria-label="Architecture overview">
         <article class="structure-card">
-          <span class="card-tag">01 · Root Directory</span>
+          <span class="card-tag">01 · Root Entry &amp; Styles</span>
           <h3>index.html &amp; styles.css</h3>
           <p>
-            <code>index.html</code> is the home page at the root of the project,
-            and <code>styles.css</code> holds all CSS rules in one place. Every
-            subpage links to <code>../styles.css</code> so visual changes in one
-            file update the whole site.
+            <code>index.html</code> serves as the locked home landing view,
+            while <code>styles.css</code> centralizes all variables, layout
+            rules, and <code>@media</code> queries for all four HTML pages.
           </p>
         </article>
 
         <article class="structure-card">
-          <span class="card-tag">02 · Subpages Folder</span>
-          <h3>pages/ Directory</h3>
+          <span class="card-tag">02 · Subpages Directory</span>
+          <h3>pages/ Documentation Trio</h3>
           <p>
-            <code>mechanics.html</code>, <code>structure.html</code>, and
-            <code>legals.html</code> sit inside <code>pages/</code>. Each one
-            uses the same <code>&lt;header class="site-header"&gt;</code> and
-            <code>&lt;footer class="site-footer"&gt;</code> structure so
-            navigation stays predictable across pages.
+            <code>mechanics.html</code> documents layout behavior,
+            <code>structure.html</code> documents file hierarchy and CSS
+            architecture, and <code>legals.html</code> documents scope,
+            accessibility, and zero-dependency standards.
           </p>
         </article>
 
         <article class="structure-card">
-          <span class="card-tag">03 · Semantic Landmarks</span>
-          <h3>Header, Nav, Main &amp; Footer</h3>
+          <span class="card-tag">03 · Shared Page Skeleton</span>
+          <h3>Header, Main &amp; Footer</h3>
           <p>
-            Pages use semantic HTML elements—<code>&lt;header&gt;</code>,
-            <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
-            <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, and
-            <code>&lt;footer&gt;</code>—to give the document clear regions for
-            both human readers and assistive technologies like screen readers.
+            All four HTML files use identical <code>.site-header</code> and
+            <code>.site-footer</code> landmarks wrapping either
+            <code>&lt;main class="hero"&gt;</code> on the home page or
+            <code>&lt;main class="page-content"&gt;</code> on subpages.
           </p>
         </article>
 
@@ -72,59 +72,89 @@
           <span class="card-tag">04 · Container Widths &amp; Grid</span>
           <h3>1200px vs. 740px</h3>
           <p>
-            <code>.hero</code> allows up to <code>1200px</code> width so two
-            columns fit comfortably side by side, while
-            <code>.page-content</code> limits width to <code>740px</code> for
-            easier reading. Inside it, <code>.structure-grid</code> arranges
-            cards in two equal columns with
-            <code>grid-template-columns: repeat(2, 1fr)</code> and
-            <code>gap: 1.25rem</code>.
+            <code>.hero</code> caps at <code>1200px</code> on
+            <code>index.html</code> so two columns fit side by side, while
+            <code>.page-content</code> caps at <code>740px</code> across
+            <code>mechanics.html</code>, <code>structure.html</code>, and
+            <code>legals.html</code> for comfortable reading.
           </p>
         </article>
       </section>
 
       <section class="text-section">
-        <h2>Viewport Modes via Body Classes</h2>
+        <h2>Role of Each File in the Hierarchy</h2>
         <p>
-          The CSS file defines two main body classes:
-          <code>.stationary-viewport</code> for <code>index.html</code> and
-          <code>.subpage</code> for the secondary pages.
-          <code>.stationary-viewport</code> sets <code>height: 100dvh</code> and
-          <code>overflow-y: hidden</code> to lock the home screen to one screen
-          height.
+          <strong><code>index.html</code>:</strong> Uses
+          <code>body.stationary-viewport</code> and <code>main.hero</code> to
+          present the project overview, primary call-to-action buttons
+          (<code>.btn-mechanics</code> and <code>.btn-structure</code>), and the
+          interactive <code>.hero-card</code> summary link.
         </p>
         <p>
-          <code>.subpage</code> uses <code>min-height: 100vh</code> instead of a
-          fixed height and removes <code>overflow-y: hidden</code>. Combined
-          with <code>flex: 1</code> on <code>.page-content</code>, the main area
-          grows with its content and lets the page scroll normally while keeping
-          the footer anchored at the bottom of the layout.
+          <strong><code>pages/mechanics.html</code>:</strong> Uses
+          <code>body.subpage</code> and <code>main.page-content</code> with
+          five numbered <code>.text-section</code> blocks explaining viewport
+          locking, active navigation states, card hover mechanics, relative
+          paths, and mobile <code>@media</code> reflow across all files.
+        </p>
+        <p>
+          <strong><code>pages/structure.html</code>:</strong> Pairs the
+          four-card <code>.structure-grid</code> overview with
+          <code>.text-section</code> breakdowns covering file roles,
+          <code>styles.css</code> cascade order, and design tokens.
+        </p>
+        <p>
+          <strong><code>pages/legals.html</code>:</strong> Uses the same
+          <code>body.subpage</code> and <code>.text-section</code> pattern to
+          define technical compliance, zero-dependency rules, and accessibility
+          guarantees applied across all four pages.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>CSS Cascade &amp; Mobile Stack (<code>@media</code>)</h2>
+        <p>
+          <code>styles.css</code> is organized from top to bottom in four
+          layers: <code>:root</code> color variables and the universal
+          <code>box-sizing: border-box</code> reset, viewport mode classes
+          (<code>.stationary-viewport</code> and <code>.subpage</code>),
+          component styles (<code>.site-header</code>, <code>.hero</code>,
+          <code>.page-content</code>, <code>.structure-grid</code>, and
+          <code>.site-footer</code>), and finally the
+          <code>@media (max-width: 768px)</code> block at the bottom.
+        </p>
+        <p>
+          Placing <code>@media (max-width: 768px)</code> at the end of
+          <code>styles.css</code> ensures mobile overrides cleanly win the CSS
+          cascade: unlocking <code>.stationary-viewport</code> on
+          <code>index.html</code>, stacking <code>.hero</code> and
+          <code>.structure-grid</code> via
+          <code>display: flex; flex-direction: column;</code>, and centering
+          <code>.site-header</code> and <code>.site-footer</code> across all
+          four HTML documents.
         </p>
       </section>
 
       <section class="text-section">
         <h2>Design Tokens &amp; Typography</h2>
         <p>
-          At the top of <code>styles.css</code>, <code>:root</code> stores CSS
-          custom properties (variables) so colors are defined once and reused
-          everywhere: <code>--bg</code> (<code>#f0eee6</code>) for the outer
-          background, <code>--surface</code> (<code>#faf9f6</code>) for header,
-          footer, and cards, <code>--code-bg</code> (<code>#e7e3d8</code>)
-          behind inline <code>&lt;code&gt;</code> tags,
-          <code>--text-main</code> (<code>#141413</code>) and
-          <code>--text-muted</code> (<code>#5c5952</code>) for text contrast,
-          <code>--border</code> and <code>--border-subtle</code> for lines, and
+          At the top of <code>styles.css</code>, <code>:root</code> stores
+          shared CSS custom properties reused across every page:
+          <code>--bg</code> (<code>#f0eee6</code>) for the page canvas,
+          <code>--surface</code> (<code>#faf9f6</code>) for header, footer,
+          and cards, <code>--code-bg</code> (<code>#e7e3d8</code>) for inline
+          <code>&lt;code&gt;</code> tags, <code>--text-main</code>
+          (<code>#141413</code>) and <code>--text-muted</code>
+          (<code>#5c5952</code>) for readable hierarchy, <code>--border</code> and
+          <code>--border-subtle</code> for dividers, and
           <code>--accent</code> (<code>#cc785c</code>) plus
-          <code>--accent-hover</code> (<code>#b56347</code>) for highlights and
-          hover states.
+          <code>--accent-hover</code> (<code>#b56347</code>) for interactive
+          accents.
         </p>
         <p>
-          A universal reset at the top of <code>styles.css</code> sets
-          <code>box-sizing: border-box</code>, <code>padding: 0</code>, and
-          <code>margin: 0</code> on all elements so borders and padding do not
-          unexpectedly push elements wider than their containers. For fonts,
-          headings use <code>Georgia, "Times New Roman", serif</code> while body
-          copy and controls use
+          Across all pages, headings and <code>.brand</code> use
+          <code>Georgia, "Times New Roman", serif</code> while body copy,
+          navigation links, and buttons use
           <code>system-ui, -apple-system, sans-serif</code>.
         </p>
       </section>
