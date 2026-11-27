@@ -1,10 +1,10 @@
-# UI.DOC
+# Website Architecture & Components
 
 A school project website built to explain the core components, structure, mechanics, and legal aspects of a web project.
 
 ## About the Project
 
-This website was developed as a school project to break down and explain its own building blocks across multiple dedicated pages—covering everything from page structure and mechanics to legal requirements.
+This website was developed in **GitHub Codespaces** as a school project to break down and explain its own building blocks across multiple dedicated pages—covering everything from page structure and mechanics to legal requirements.
 
 ### Site Pages & Components
 * **Home (`Index.html`):** The main landing page introducing the project and providing navigation to all subpages.
@@ -23,4 +23,3 @@ project-root/
     ├── mechanics.html      # Explains website mechanics and functionality
     ├── structure.html      # Explains HTML structure and page layout
     └── legals.html         # Covers legal notices, terms, and disclaimers
-
