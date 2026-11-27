@@ -25,7 +25,10 @@
   overflow-y: hidden;
   background-color: var(--bg);
   color: var(--text-main);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .site-header {
@@ -35,7 +38,7 @@
   padding: 1.1rem 2rem;
   background-color: var(--surface);
   border-bottom: 1px solid var(--border);
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .brand {
@@ -135,7 +138,9 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(20, 20, 19, 0.05);
-  transition: border-color 0.15s, transform 0.15s;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
 }
 
 .hero-card:hover {
@@ -185,7 +190,10 @@
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--text-main);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .page-content {

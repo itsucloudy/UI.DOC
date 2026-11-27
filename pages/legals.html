@@ -24,11 +24,13 @@
     <main class="page-content">
       <a href="../index.html" class="back-link">← Back to Home</a>
       <span class="card-tag">Authorship &amp; Legals</span>
-      <h1 class="page-title">How I built this project (and where AI helped).</h1>
+      <h1 class="page-title">
+        How I built this project (and where AI helped).
+      </h1>
       <p class="page-lead">
-        Since this site documents how its own code works, it only makes sense
-        to be upfront about how it was made. Here is an honest breakdown of what
-        I wrote myself and what I handed off to AI.
+        This page documents how the codebase was put together, what was written
+        manually versus with AI assistance, and what technologies are actually
+        inside the project.
       </p>
 
       <section class="split-card">
@@ -49,38 +51,42 @@
       <section class="text-section">
         <h2>What I Did (70%)</h2>
         <p>
-          After seeing an initial AI prototype, I rebuilt the site from scratch
-          by eyeballing the visual design rather than copying the original
-          code—only checking back when I got genuinely stuck. I mapped out the
-          multi-page structure and wrote the core CSS myself, including the
-          locked <code>100dvh</code> home screen, Flexbox alignment, card and
-          button rules, and the <code>pages/</code> folder setup.
+          After looking at an initial AI layout reference, I rebuilt the site by
+          looking at the design rather than copying the generated code directly,
+          only checking back when I ran into a problem I could not solve on my
+          own. I planned the pages and wrote the core rules in
+          <code>styles.css</code> myself, including the <code>100dvh</code> home
+          viewport lock, Flexbox alignment, button and card styles, and the
+          <code>pages/</code> folder organization.
         </p>
         <p>
-          I also tested everything in the browser, caught broken links and
-          awkward line spacing, decided to replace my original test form with
-          this legals page, and chose to organize the color palette with
-          <code>:root</code> variables.
+          I also tested the pages in the browser, fixed broken links and spacing
+          issues, chose to use this legals page instead of an earlier test form,
+          and set up the color palette using <code>:root</code> custom
+          properties.
         </p>
       </section>
 
       <section class="text-section">
         <h2>What AI Did (30%)</h2>
         <p>
-          AI generated the initial visual prototype I used as a reference, and
-          then acted as a helper for the repetitive HTML markup, file naming,
-          and page copy. It helped catch relative path bugs between the root
-          folder and <code>pages/</code>, structured the subpage sections, and
-          wrote the text descriptions and percentage bar markup.
+          AI generated the early visual reference and helped speed up repetitive
+          HTML tags across the pages, file naming, and text drafts. It also
+          helped spot relative path mistakes between the root folder and
+          <code>pages/</code>, organize sections on the subpages, and write the
+          markup for the <code>.split-bar</code> percentage bar above (which
+          uses a flex row with <code>70%</code> and <code>30%</code> width
+          segments).
         </p>
       </section>
 
       <section class="text-section">
         <h2>Project Scope</h2>
         <p>
-          This is a plain HTML5 and CSS3 school project. There are no external
-          frameworks, backend servers, databases, or tracking scripts—just static
-          files built to demonstrate layout and styling fundamentals.
+          This is a plain HTML5 and CSS3 school project. There are no JavaScript
+          files, external CSS libraries, front-end frameworks, backend servers,
+          databases, or analytics/tracking scripts—only static HTML and CSS
+          files that open directly in a browser.
         </p>
       </section>
     </main>
