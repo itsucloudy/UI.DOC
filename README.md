@@ -1,4 +1,4 @@
-# Website Architecture & Components
+# UI.DOC
 
 A school project website built to explain the core components, structure, mechanics, and legal aspects of a web project.
 
