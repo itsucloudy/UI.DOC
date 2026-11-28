@@ -24,128 +24,165 @@
     </header>
 
     <main class="page-content">
-      <a href="../index.html" class="back-link">← Back to Stationary View</a>
-      <span class="card-tag">Core Functionality</span>
-      <h1 class="page-title">How every page and layout mode works.</h1>
+      <a href="../index.html" class="back-link">← Back to Home</a>
+      <span class="card-tag">How It Works</span>
+      <h1 class="page-title">How the layout, links, and CSS rules work.</h1>
       <p class="page-lead">
-        This site is a multi-page static HTML and CSS project with no
-        JavaScript. All four HTML files—<code>index.html</code>,
-        <code>mechanics.html</code>, <code>structure.html</code>, and
-        <code>legals.html</code>—are styled by <code>styles.css</code>, using
-        Flexbox, CSS Grid, relative paths, and a single
-        <code>@media</code> breakpoint to adapt across desktop and mobile
-        screens.
+        There is no JavaScript anywhere in this project. All four HTML files
+        share one stylesheet (<code>styles.css</code>), so every layout mode,
+        hover state, and mobile adjustment comes straight from HTML structure
+        and CSS rules.
       </p>
 
       <section class="text-section">
-        <h2>1. Dual Body Modes: Home vs. Subpages</h2>
+        <h2>1. Two Body Modes: Locked Home vs. Scrollable Subpages</h2>
         <p>
           On <code>index.html</code>, the <code>&lt;body&gt;</code> uses
-          <code>.stationary-viewport</code>, setting
+          <code>.stationary-viewport</code>. That class sets
           <code
             >display: flex; flex-direction: column; height: 100dvh; overflow-y:
             hidden;</code
-          >. Using dynamic viewport height (<code>100dvh</code>) locks the home
-          screen to the active visible browser height while
-          <code>.hero</code> uses <code>flex: 1</code> to center its content
-          between <code>.site-header</code> and <code>.site-footer</code>.
+          >. Using <code>100dvh</code> (dynamic viewport height) matches the
+          visible browser height instead of getting trapped behind mobile
+          toolbars. Inside that column, <code>.hero</code> gets
+          <code>flex: 1</code> so it fills the space between
+          <code>.site-header</code> and <code>.site-footer</code> and centers
+          its children vertically with <code>align-items: center</code>.
         </p>
         <p>
-          On <code>mechanics.html</code>, <code>structure.html</code>, and
-          <code>legals.html</code>, the <code>&lt;body&gt;</code> switches to
-          <code>.subpage</code>, which replaces the fixed height with
-          <code>min-height: 100vh</code> and removes
-          <code>overflow-y: hidden</code>. Inside each subpage,
-          <code>.page-content</code> uses <code>flex: 1</code> so long articles
-          scroll naturally while keeping <code>.site-footer</code> anchored at
-          the bottom even on shorter pages like <code>legals.html</code>.
+          Subpages switch the body class to <code>.subpage</code>. Instead of
+          locking the height, <code>.subpage</code> sets
+          <code>min-height: 100vh</code> and leaves vertical scrolling open.
+          <code>.page-content</code> also uses <code>flex: 1</code>, so long
+          pages scroll normally while shorter pages still push
+          <code>.site-footer</code> down to the bottom of the screen.
         </p>
       </section>
 
       <section class="text-section">
-        <h2>2. Shared Navigation &amp; Active Link State</h2>
+        <h2>2. Header Bar, Navigation Links, and aria-current</h2>
         <p>
-          Every file renders the same <code>.site-header</code> Flexbox bar with
-          <code>justify-content: space-between</code>, placing
-          <code>.brand</code> on the left and
-          <code>.nav-container-row ul</code> on the right with
-          <code>gap: 1.5rem</code>.
+          Every page renders the same <code>.site-header</code> bar. It uses
+          Flexbox with <code>justify-content: space-between</code> and
+          <code>align-items: center</code> to place <code>.brand</code> on the
+          left and <code>.nav-container-row</code> on the right. Inside the nav,
+          <code>.nav-container-row ul</code> strips list bullets with
+          <code>list-style: none</code> and spaces the links horizontally using
+          <code>gap: 2rem</code>.
         </p>
         <p>
-          On the three subpages inside <code>pages/</code>, the active link sets
-          <code>aria-current="page"</code> in HTML, which
-          <code>styles.css</code> highlights in <code>var(--accent)</code>—giving
-          users clear location feedback without JavaScript routing.
+          Nav links start in <code>var(--text-muted)</code> and turn
+          <code>var(--accent)</code> on <code>:hover</code>. Each subpage also
+          adds <code>aria-current="page"</code> to its own nav link.
+          <code>styles.css</code> targets
+          <code>.nav-container-row a[aria-current="page"]</code> with
+          <code>color: var(--accent)</code> and <code>font-weight: 600</code>,
+          so the active page stands out both visually and for screen readers
+          with no JavaScript routing.
         </p>
       </section>
 
       <section class="text-section">
-        <h2>3. Hero Split, Grid Cards &amp; Interactive Hover States</h2>
+        <h2>3. Hero Split, Action Buttons, and the Clickable Card</h2>
         <p>
-          On <code>index.html</code>, <code>.hero</code> pairs
-          <code>.hero-content</code> and <code>.hero-card</code> side by side
-          inside a <code>1200px</code> container. Writing
-          <code>.hero-card</code> as a block-level <code>&lt;a&gt;</code> tag
-          makes the entire card clickable, lifting <code>4px</code> via
-          <code>transform: translateY(-4px)</code> on hover, while
-          <code>.btn-mechanics</code> and <code>.btn-structure</code> provide
-          direct action links.
+          On <code>index.html</code>, <code>.hero</code> caps at
+          <code>max-width: 1200px</code>, centers itself with
+          <code>margin: 0 auto</code>, and separates <code>.hero-content</code>
+          from <code>.hero-card</code> with <code>gap: 3rem</code>. Below the
+          intro text, <code>.hero-actions</code> places two buttons side by side
+          with <code>gap: 1rem</code>. <code>.btn-mechanics</code> uses a solid
+          <code>var(--accent)</code> fill that darkens to
+          <code>var(--accent-hover)</code> on hover.
+          <code>.btn-structure</code> uses <code>var(--surface)</code> with a
+          <code>var(--border-subtle)</code> border that switches to
+          <code>var(--accent)</code> on hover.
         </p>
+        <p>
+          <code>.hero-card</code> is an <code>&lt;a&gt;</code> element styled
+          with <code>display: block</code> and <code>color: inherit</code>,
+          rather than a plain <code>&lt;div&gt;</code> with a small link tucked
+          inside. That makes the entire <code>420px</code> card clickable. On
+          hover, <code>border-color</code> shifts to <code>var(--accent)</code>
+          and <code>transform: translateY(-4px)</code> nudges the card up over
+          <code>0.15s</code>.
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>4. Grid Cards and the Pure-CSS Split Bar</h2>
         <p>
           On <code>structure.html</code>, <code>.structure-grid</code> uses CSS
-          Grid (<code>grid-template-columns: repeat(2, 1fr)</code>,
-          <code>gap: 1.25rem</code>) inside a <code>740px</code> reading column
-          to arrange four architectural overview cards in balanced pairs.
+          Grid with <code>grid-template-columns: repeat(2, 1fr)</code> and
+          <code>gap: 1.25rem</code> inside the <code>740px</code>
+          <code>.page-content</code> container. That splits the four
+          <code>.structure-card</code> blocks into two even rows on desktop.
+        </p>
+        <p>
+          On <code>legals.html</code>, <code>.split-card</code> draws the 65/35
+          authorship bar with plain HTML and CSS. <code>.split-bar</code> is a
+          <code>12px</code>-tall flex row with
+          <code>border-radius: 999px</code> and <code>overflow: hidden</code> so
+          the inner fills stay rounded at both ends. Inside it,
+          <code>.split-fill-human</code> takes <code>width: 65%</code> in
+          <code>var(--accent)</code> and <code>.split-fill-ai</code> takes
+          <code>width: 35%</code> in <code>var(--bar-muted)</code>. Adding
+          <code>role="img"</code> and an <code>aria-label</code> lets screen
+          readers announce the ratio.
         </p>
       </section>
 
       <section class="text-section">
-        <h2>4. Relative Folder Paths Across Root &amp; Subpages</h2>
+        <h2>5. Relative Paths Between Root and pages/</h2>
         <p>
-          Because <code>index.html</code> and <code>styles.css</code> sit at the
-          root while <code>mechanics.html</code>, <code>structure.html</code>,
-          and <code>legals.html</code> sit inside <code>pages/</code>, links
-          adjust by directory depth. From <code>index.html</code>, links point
-          downward using <code>pages/mechanics.html</code>,
+          <code>index.html</code> and <code>styles.css</code> live in the root
+          folder, while <code>mechanics.html</code>,
+          <code>structure.html</code>, and <code>legals.html</code> sit one
+          level down in <code>pages/</code>. Because of that folder layout,
+          <code>index.html</code> loads <code>styles.css</code> directly and
+          links downward using <code>pages/mechanics.html</code>,
           <code>pages/structure.html</code>, and <code>pages/legals.html</code>.
         </p>
         <p>
-          From any file inside <code>pages/</code>, <code>../</code> steps up
-          one folder to reach <code>../index.html</code> and
-          <code>../styles.css</code>, while sibling subpage links use direct
-          filenames like <code>mechanics.html</code>,
-          <code>structure.html</code>, or <code>legals.html</code>.
+          Any file inside <code>pages/</code> uses <code>../</code> to step up
+          one directory to reach <code>../styles.css</code> and
+          <code>../index.html</code>. Links between the three subpages stay in
+          the same directory, so they only need bare filenames like
+          <code>mechanics.html</code>, <code>structure.html</code>, and
+          <code>legals.html</code>.
         </p>
       </section>
 
       <section class="text-section">
-        <h2>5. Site-Wide Mobile Reflow (<code>@media</code>)</h2>
+        <h2>6. Mobile Reflow Under 768px</h2>
         <p>
-          All four HTML files declare
+          All four HTML files include
           <code
             >&lt;meta name="viewport" content="width=device-width,
             initial-scale=1.0" /&gt;</code
           >
-          so mobile browsers render at true device width. When the viewport hits
-          <code>@media (max-width: 768px)</code>, <code>styles.css</code>
-          updates every page simultaneously:
+          so phones render at real screen width instead of shrinking a desktop
+          page. When the viewport reaches
+          <code>@media (max-width: 768px)</code> at the bottom of
+          <code>styles.css</code>, several layout rules switch at once.
         </p>
         <p>
-          On <code>index.html</code>, <code>.stationary-viewport</code> unlocks
-          to <code>height: auto</code> and <code>overflow-y: visible</code>,
-          while <code>.hero</code> switches to
-          <code>flex-direction: column</code>. On <code>structure.html</code>,
+          On <code>index.html</code>, <code>.stationary-viewport</code> drops
+          its fixed height (<code>height: auto; overflow-y: visible</code>) so
+          nothing gets clipped, and <code>.hero</code> stacks vertically with
+          <code>flex-direction: column</code> and tighter side padding
+          (<code>2rem 1.25rem</code>). Across every page,
+          <code>.site-header</code> and <code>.site-footer</code> stack and
+          center their items, while <code>.nav-container-row ul</code> turns on
+          <code>flex-wrap: wrap</code> so links wrap instead of overflowing
+          sideways. On <code>structure.html</code>,
           <code>.structure-grid</code> switches from a 2-column grid to
-          <code>display: flex; flex-direction: column;</code>. Across all four
-          pages, <code>.site-header</code> and <code>.site-footer</code> stack
-          vertically and center their items so navigation never crowds on
-          narrow screens.
+          <code>display: flex; flex-direction: column</code>.
         </p>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Scrollable Subpage · Shared styles.css</span>
+      <span>mechanics.html · Shared styles.css</span>
       <span>HTML5 &amp; CSS3</span>
     </footer>
   </body>

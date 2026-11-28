@@ -15,7 +15,7 @@
           <ul>
             <li><a href="mechanics.html">Mechanics</a></li>
             <li><a href="structure.html">Structure</a></li>
-            <li><a href="legals.html">Legals</a></li>
+            <li><a href="legals.html" aria-current="page">Legals</a></li>
           </ul>
         </nav>
       </div>
@@ -23,76 +23,82 @@
 
     <main class="page-content">
       <a href="../index.html" class="back-link">← Back to Home</a>
-      <span class="card-tag">Authorship &amp; Legals</span>
-      <h1 class="page-title">
-        How I built this project (and where AI helped).
-      </h1>
+      <span class="card-tag">Authorship &amp; Scope</span>
+      <h1 class="page-title">How I built this site (and where AI helped).</h1>
       <p class="page-lead">
-        This page documents how the codebase was put together, what was written
-        manually versus with AI assistance, and what technologies are actually
-        inside the project.
+        This page lays out what I wrote by hand, where AI helped along the way,
+        and what is actually running inside the project folder.
       </p>
 
       <section class="split-card">
         <div class="split-labels">
-          <span class="split-human">My Work · 70%</span>
-          <span class="split-ai">AI Help · 30%</span>
+          <span class="split-human">My Work · 65%</span>
+          <span class="split-ai">AI Help · 35%</span>
         </div>
         <div
           class="split-bar"
           role="img"
-          aria-label="70 percent my work and 30 percent AI assistance"
+          aria-label="65 percent my work and 35 percent AI assistance"
         >
-          <div class="split-fill-human" style="width: 70%"></div>
-          <div class="split-fill-ai" style="width: 30%"></div>
+          <div class="split-fill-human" style="width: 65%"></div>
+          <div class="split-fill-ai" style="width: 35%"></div>
         </div>
       </section>
 
       <section class="text-section">
-        <h2>What I Did (70%)</h2>
+        <h2>What I Built Myself (65%)</h2>
         <p>
-          After looking at an initial AI layout reference, I rebuilt the site by
-          looking at the design rather than copying the generated code directly,
-          only checking back when I ran into a problem I could not solve on my
-          own. I planned the pages and wrote the core rules in
-          <code>styles.css</code> myself, including the <code>100dvh</code> home
-          viewport lock, Flexbox alignment, button and card styles, and the
-          <code>pages/</code> folder organization.
+          I started by looking at an early AI layout reference, then rebuilt the
+          site myself by eye instead of copying generated code straight into the
+          editor. I only checked back when I got stuck on a specific bug. I
+          planned the four pages, set up the <code>pages/</code> folder, and
+          wrote the core rules in <code>styles.css</code>, including the
+          <code>100dvh</code> home viewport lock, Flexbox alignment, button and
+          card styles, and the <code>:root</code> color variables.
         </p>
         <p>
-          I also tested the pages in the browser, fixed broken links and spacing
-          issues, chose to use this legals page instead of an earlier test form,
-          and set up the color palette using <code>:root</code> custom
-          properties.
-        </p>
-      </section>
-
-      <section class="text-section">
-        <h2>What AI Did (30%)</h2>
-        <p>
-          AI generated the early visual reference and helped speed up repetitive
-          HTML tags across the pages, file naming, and text drafts. It also
-          helped spot relative path mistakes between the root folder and
-          <code>pages/</code>, organize sections on the subpages, and write the
-          markup for the <code>.split-bar</code> percentage bar above (which
-          uses a flex row with <code>70%</code> and <code>30%</code> width
-          segments).
+          I also tested every page in the browser, tracked down broken links and
+          spacing issues, and decided to replace an earlier test form with this
+          authorship and legals page.
         </p>
       </section>
 
       <section class="text-section">
-        <h2>Project Scope</h2>
+        <h2>Where AI Helped (35%)</h2>
         <p>
-          This is a plain HTML5 and CSS3 school project. There are no JavaScript
-          files, external CSS libraries, front-end frameworks, backend servers,
-          databases, or analytics/tracking scripts—only static HTML and CSS
-          files that open directly in a browser.
+          AI generated the initial visual reference and helped speed up
+          repetitive HTML tags, file naming, and early text drafts across the
+          pages. It also helped catch relative path mistakes between the root
+          folder and <code>pages/</code> and build the markup for the
+          <code>.split-bar</code> percentage bar above (a flex row holding
+          <code>65%</code> and <code>35%</code> width segments inside a rounded
+          container).
+        </p>
+        <p>
+          At the end of the project, AI helped polish and organize the site
+          without rewriting the core code. That pass focused on aligning page
+          explanations with the real CSS rules, cleaning up the wording and
+          <code>README.md</code>, and adding a few small stylesheet tweaks
+          (active-link highlighting, mobile footer stacking, and tighter mobile
+          hero padding).
+        </p>
+      </section>
+
+      <section class="text-section">
+        <h2>Technical Scope and Zero Dependencies</h2>
+        <p>
+          This is a static HTML5 and CSS3 school project built in GitHub
+          Codespaces. There is no JavaScript, no external CSS library, no
+          front-end framework, and no third-party font CDN. It does not connect
+          to a backend server or database, and it loads no cookies, analytics,
+          or tracking scripts. Every page opens directly in a browser as a plain
+          local file.
         </p>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Authorship &amp; Legals · Shared styles.css</span>
+      <span>legals.html · Shared styles.css</span>
       <span>HTML5 &amp; CSS3</span>
     </footer>
   </body>

@@ -23,38 +23,38 @@
 
     <main class="hero">
       <div class="hero-content">
-        <span class="card-tag">HTML & CSS Documentation</span>
+        <span class="card-tag">HTML5 &amp; CSS3 Project</span>
         <h1 class="hero-headline">
-          A stationary viewport layout built with semantic HTML and modern CSS.
+          A single-screen home page that opens into scrollable docs.
         </h1>
         <p class="hero-subtext">
-          An interactive breakdown of how this site locks its home screen to the
-          viewport and transitions into scrollable subpages.
+          This landing view locks to 100dvh with Flexbox and no vertical scroll.
+          Pick any link to leave the fixed screen and read how the HTML and CSS
+          behind this site actually work.
         </p>
         <div class="hero-actions">
           <a href="pages/mechanics.html" class="btn-mechanics"
-            >Inspect Mechanics</a
+            >Read Mechanics</a
           >
-          <a href="pages/structure.html" class="btn-structure"
-            >Read Structure</a
-          >
+          <a href="pages/structure.html" class="btn-structure">See Structure</a>
         </div>
       </div>
 
       <a href="pages/mechanics.html" class="hero-card">
-        <span class="card-tag">Interactive Trigger</span>
-        <h2>Click Anywhere on This Card</h2>
+        <span class="card-tag">Whole-Card Link</span>
+        <h2>The entire card is one anchor tag</h2>
         <p>
-          This entire container is wrapped in an anchor tag. Clicking it exits
-          the locked 100dvh home view and loads a scrollable breakdown page.
+          Instead of linking only the text at the bottom, this whole box is an
+          anchor element set to display: block. Clicking anywhere on it leaves
+          the locked 100dvh home screen and opens the mechanics page.
         </p>
-        <span class="card-link">Explore How It Works →</span>
+        <span class="card-link">Open Mechanics →</span>
       </a>
     </main>
 
     <footer class="site-footer">
-      <span>Stationary Home View · Locked to 100dvh</span>
-      <span>HTML5 & CSS3</span>
+      <span>index.html · Locked to 100dvh</span>
+      <span>HTML5 &amp; CSS3</span>
     </footer>
   </body>
 </html>
